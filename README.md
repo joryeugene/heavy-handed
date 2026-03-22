@@ -69,26 +69,34 @@ The right inner thumb taps left-click and holds for the mouse layer.
 |------|-------|---------|
 | Backspace | L1 Num | Numbers, brackets |
 | Space | L2 Nav | Arrows, editing, all tmux controls |
-| Enter | L3 Sym | Shifted symbols |
+| Enter | L3 Sym | Shifted symbols, yabai window management |
 | Right inner thumb | L4 Mouse | Mouse movement, scroll, buttons |
 | Tab | L5 Fn | F-keys, media, brightness |
 
 ### L1 Num (hold Backspace)
 
-Right hand numpad with brackets. Left hand passes through to base modifiers.
+Right hand numpad with brackets. Left hand has format separators, bracket pairs,
+and math operators for number-adjacent input without leaving the numpad.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  [  |  7  |  8  |  9  |  ]  | Alt |
+|Ctrl |  {  |  (  |  )  |  }  |     |          |  [  |  7  |  8  |  9  |  ]  | Alt |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  =  |  4  |  5  |  6  |  ;  |  '  |
+| Cmd |  $  |  .  |  ,  |  :  |     |          |  =  |  4  |  5  |  6  |  ;  |  '  |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  \  |  1  |  2  |  3  |  `  |Sft/)|
+|Sft/(|  /  |  *  |  +  |  %  |     |          |  \  |  1  |  2  |  3  |  `  |Sft/)|
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
                     |     |(hld)|     |    |  -  |  0  |  .  |
                     +-----+-----+-----+    +-----+-----+-----+
 ```
+
+**Left hand home row (ASDF):** `$` `.` `,` `:` for currency, decimals, thousands
+separators, and times. Enter numbers with the right hand, punctuate with the left.
+
+**Left hand top row (QWER):** `{` `(` `)` `}` for grouping expressions while on the numpad.
+
+**Left hand bottom row (ZXCV):** `/` `*` `+` `%` for math and percentages.
 
 ### L2 Nav + tmux (hold Space)
 
@@ -118,22 +126,31 @@ U = split horizontal, I = split vertical, O = zoom, P = copy mode.
 **Bottom row (launchers):**
 M = lazygit, , = zoxide jump, . = new window, / = yazi file manager.
 
-### L3 Sym (hold Enter)
+### L3 Sym + yabai (hold Enter)
 
-Right hand shifted symbols. Left hand available for future use.
+Right hand shifted symbols. Left hand yabai window management.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  {  |  &  |  *  |  (  |  }  | Alt |
+|Ctrl |rsz← |rsz↓ |rsz↑ |rsz→ |     |          |  {  |  &  |  *  |  (  |  }  | Alt |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  +  |  $  |  %  |  ^  |  :  |  "  |
+| Cmd |fcs← |fcs↓ |fcs↑ |fcs→ |     |          |  +  |  $  |  %  |  ^  |  :  |  "  |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |  |  |  !  |  @  |  #  |  ~  |Sft/)|
+|Sft/(|swp← |swp↓ |swp↑ |swp→ |     |          |  |  |  !  |  @  |  #  |  ~  |Sft/)|
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
-                    |     |     |(hld)|    |  _  |  (  |  )  |
+                    |full |rotat|(hld)|    |  _  |  (  |  )  |
                     +-----+-----+-----+    +-----+-----+-----+
 ```
+
+**Left hand home row (ASDF):** Alt+HJKL = focus window in that direction.
+Same spatial mapping as L2 arrows. A=west, S=south, D=north, F=east.
+
+**Left hand bottom row (ZXCV):** Shift+Alt+HJKL = swap window position.
+
+**Left hand top row (QWER):** Ctrl+Alt+HJKL = resize window.
+
+**Left thumbs:** fullscreen toggle (outer), rotate layout 90 degrees (middle).
 
 ### L4 Mouse (hold right inner thumb)
 
@@ -149,7 +166,7 @@ shortcuts for use while mousing.
 |     |     |     |     |     |     |          |     |redo |find |     |     |     |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
-                    | Mid |Click|Right|    |     |     |(hld)|
+                    | Mid |Click|Right|    |(hld)|     |     |
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
@@ -182,7 +199,7 @@ Natural left-to-right: toggle, down, up, toggle.
 **Right pinky:** Screenshot (top), Bri+ (home), Bri- (bottom).
 Brightness next to screenshot since both are display controls.
 
-**Right thumbs:** M0 Raycast, M1 Whisper, M2 tmux prefix.
+**Right thumbs:** M0 Raycast, M1 Wispr, M2 tmux prefix.
 
 ---
 
@@ -194,7 +211,7 @@ matching `~/.config/tmux/tmux.conf` bindings exactly.
 | Slot | Keys | Purpose | Layer | Position |
 |------|------|---------|-------|----------|
 | M0 | RAlt+Space | Raycast launcher | L5 | right thumb outer |
-| M1 | LAlt+D | Whisper transcription | L5 | right thumb middle |
+| M1 | LAlt+D | Wispr transcription | L5 | right thumb middle |
 | M2 | Ctrl+A | tmux prefix (raw) | L5 | right thumb inner |
 | M3 | Ctrl+A, [ | tmux copy mode | L2 | P position |
 | M4 | Ctrl+A, - | tmux split horizontal | L2 | U position |
@@ -222,21 +239,28 @@ layout through shared bindings.
 ### yabai + skhd (tiling window manager)
 
 [yabai](https://github.com/koekeishiya/yabai) is the tiling window manager.
-[skhd](https://github.com/koekeishiya/skhd) is the hotkey daemon. Two modifiers,
-two domains. No overlap.
+[skhd](https://github.com/koekeishiya/skhd) is the hotkey daemon. Three domains,
+three modifiers. No overlap.
 
-**Alt = window management** (right top pinky on the Piantor):
+**L3 layer = window HJKL** (hold Enter on the Piantor, left hand ASDF):
+
+The keyboard sends Alt+HJKL, Shift+Alt+HJKL, and Ctrl+Alt+HJKL keycodes
+directly from the L3 layer. skhd intercepts them. No same-hand modifier
+stretch. Home row = focus, bottom = swap, top = resize.
+
+**Alt = remaining window ops** (right top pinky, direct):
 
 ```
-Alt + h/j/k/l       Focus window west/south/north/east
-Alt + Shift + hjkl   Swap window position
-Alt + Ctrl + hjkl    Resize window
-Alt + 1-6            Switch to space 1-6
-Alt + Shift + 1-6    Move window to space (and follow)
-Alt + Shift + n/p    Move window to next/prev space (and follow)
 Alt + f              Toggle fullscreen
 Alt + r              Rotate layout 90 degrees
+Alt + m              Focus next display (multi-monitor)
+Shift + Alt + m      Move window to next display
+Shift + Alt + 1-6    Move window to space N
+Shift + Alt + n/p    Move window to next/prev space
 ```
+
+Space focus uses native macOS Ctrl+1-6 (Mission Control). The Alt bindings
+handle window movement only.
 
 **Hyper = app launching** (hold right outer thumb on the Piantor):
 
@@ -250,9 +274,7 @@ Hyper + g            Google Calendar
 Hyper + c            Screenshot (interactive selection)
 ```
 
-Six spaces. Shift+Alt adds "move" to any navigation command.
-Ctrl+Alt adds "resize" to any direction. Hyper focuses the app if
-running, launches if not.
+Hyper focuses the app if running, launches if not.
 
 ### Karabiner-Elements (OS-level remaps)
 
