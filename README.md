@@ -17,7 +17,8 @@ Ctrl (top left), Cmd (home left), Alt (top right), Shift-parens (bottom both).
 
 The right outer thumb is Escape on tap, Hyper (all four modifiers) on hold.
 Escape is the most common single-key action in vim and tmux.
-Hyper gives Karabiner a dedicated modifier namespace with zero collisions.
+Hyper gives skhd a dedicated modifier namespace for app launching, separate
+from Alt (window management) and Ctrl (tmux).
 
 **Ghost glyph protection:** the inner column keys (T/G/B and Y/H/N positions)
 send nothing on every layer except base. At 20g actuation, fast typing on
@@ -136,20 +137,27 @@ Right hand shifted symbols. Left hand available for future use.
 
 ### L4 Mouse (hold right inner thumb)
 
-Left hand controls cursor and scroll. Left thumbs for click buttons.
+Left hand controls cursor and scroll. Right hand has one-handed editing
+shortcuts for use while mousing.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|Ctrl |Scr L|Scr D|Scr U|Scr R|     |          |     |     |     |     |     |     |
+|Ctrl |Scr L|Scr D|Scr U|Scr R|     |          |     |newTb|close|save |slAll| Alt |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-| Cmd |Mse L|Mse D|Mse U|Mse R|     |          |     |     |     |     |     |     |
+| Cmd |Mse L|Mse D|Mse U|Mse R|     |          |     |undo | cut |copy |paste|     |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |     |     |     |     |     |     |
+|     |     |     |     |     |     |          |     |redo |find |     |     |     |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
                     | Mid |Click|Right|    |     |     |(hld)|
                     +-----+-----+-----+    +-----+-----+-----+
 ```
+
+**Left hand:** cursor movement (home row), scroll (top row), click buttons (thumbs).
+
+**Right hand home row:** Cmd+Z undo, Cmd+X cut, Cmd+C copy, Cmd+V paste.
+**Right hand top row:** Cmd+T new tab, Cmd+W close tab, Cmd+S save, Cmd+A select all.
+**Right hand bottom row:** Cmd+Shift+Z redo, Cmd+F find.
 
 ### L5 Fn + Media (hold Tab)
 
@@ -214,9 +222,10 @@ layout through shared bindings.
 ### yabai + skhd (tiling window manager)
 
 [yabai](https://github.com/koekeishiya/yabai) is the tiling window manager.
-[skhd](https://github.com/koekeishiya/skhd) is the hotkey daemon that sends
-commands to yabai. Alt is the window management modifier (right top pinky on
-the Piantor).
+[skhd](https://github.com/koekeishiya/skhd) is the hotkey daemon. Two modifiers,
+two domains. No overlap.
+
+**Alt = window management** (right top pinky on the Piantor):
 
 ```
 Alt + h/j/k/l       Focus window west/south/north/east
@@ -227,18 +236,23 @@ Alt + Shift + 1-6    Move window to space (and follow)
 Alt + Shift + n/p    Move window to next/prev space (and follow)
 Alt + f              Toggle fullscreen
 Alt + r              Rotate layout 90 degrees
-Alt + q              Google Chrome
-Alt + w              WezTerm
-Alt + e              Zen Browser
-Alt + s              Slack
-Alt + a              Asana
-Alt + g              Google Calendar
-Alt + c              Screenshot (interactive selection)
 ```
 
-Six spaces. App launchers on the left hand home row and top row.
-Shift+Alt adds "move" to any navigation command.
-Ctrl+Alt adds "resize" to any direction.
+**Hyper = app launching** (hold right outer thumb on the Piantor):
+
+```
+Hyper + q            Google Chrome
+Hyper + w            WezTerm
+Hyper + e            Zen Browser
+Hyper + s            Slack
+Hyper + a            Asana
+Hyper + g            Google Calendar
+Hyper + c            Screenshot (interactive selection)
+```
+
+Six spaces. Shift+Alt adds "move" to any navigation command.
+Ctrl+Alt adds "resize" to any direction. Hyper focuses the app if
+running, launches if not.
 
 ### Karabiner-Elements (OS-level remaps)
 
