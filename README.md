@@ -99,7 +99,7 @@ Left hand: arrows and editing. Right hand: all tmux controls.
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
 | Cmd |Left |Down | Up  |Right|     |          |prevW|nextS|prevS|nextW|sesh |     |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|Sft/(|Cmd+Z|Cmd+X|Cmd+C|Cmd+V|CmdSZ|          |     | git | jump|newWn|claud|     |
+|Sft/(|Cmd+Z|Cmd+X|Cmd+C|Cmd+V|CmdSZ|          |     | git | jump|newWn| yazi|     |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
                     | Del |BkSp |Enter|    |     |(hld)|     |
@@ -115,7 +115,7 @@ J = next session, K = prev session (vertical).
 U = split horizontal, I = split vertical, O = zoom, P = copy mode.
 
 **Bottom row (launchers):**
-M = lazygit, , = zoxide jump, . = new window, / = claude window.
+M = lazygit, , = zoxide jump, . = new window, / = yazi file manager.
 
 ### L3 Sym (hold Enter)
 
@@ -189,14 +189,14 @@ matching `~/.config/tmux/tmux.conf` bindings exactly.
 | M1 | LAlt+D | Whisper transcription | L5 | right thumb middle |
 | M2 | Ctrl+A | tmux prefix (raw) | L5 | right thumb inner |
 | M3 | Ctrl+A, [ | tmux copy mode | L2 | P position |
-| M4 | Ctrl+A, \| | tmux split horizontal | L2 | U position |
-| M5 | Ctrl+A, - | tmux split vertical | L2 | I position |
+| M4 | Ctrl+A, - | tmux split horizontal | L2 | U position |
+| M5 | Ctrl+A, \| | tmux split vertical | L2 | I position |
 | M6 | Ctrl+A, z | tmux zoom pane | L2 | O position |
 | M7 | Ctrl+A, g | lazygit popup | L2 | M position |
 | M8 | Ctrl+A, a | sesh session picker | L2 | ; position |
 | M9 | Ctrl+A, j | zoxide directory jump | L2 | , position |
 | M10 | Ctrl+A, c | new tmux window | L2 | . position |
-| M11 | Ctrl+A, C | new claude window | L2 | / position |
+| M11 | Ctrl+A, y | yazi file manager popup | L2 | / position |
 | M12 | Alt+P | tmux previous window | L2 | H position |
 | M13 | Alt+N | tmux next window | L2 | L position |
 | M14 | Alt+Y | tmux previous session | L2 | K position |
@@ -227,7 +227,6 @@ Alt + Shift + 1-6    Move window to space (and follow)
 Alt + Shift + n/p    Move window to next/prev space (and follow)
 Alt + f              Toggle fullscreen
 Alt + r              Rotate layout 90 degrees
-Alt + Tab            Toggle last space
 Alt + q              Google Chrome
 Alt + w              WezTerm
 Alt + e              Zen Browser
@@ -258,16 +257,15 @@ Prefix is Ctrl+A (keyboard macro M2).
 The layout macros match these tmux.conf bindings:
 
 ```
-Prefix + |      Split horizontal (M4)
-Prefix + -      Split vertical (M5)
+Prefix + -      Split horizontal (M4)
+Prefix + |      Split vertical (M5)
 Prefix + z      Zoom toggle (M6)
 Prefix + g      lazygit popup (M7)
 Prefix + a      sesh session picker with fzf (M8)
 Prefix + j      zoxide directory jump (M9)
 Prefix + c      New window (M10)
-Prefix + C      New window running claude (M11)
+Prefix + y      yazi file manager popup (M11)
 Prefix + [      Copy mode, vi keys (M3)
-Prefix + y      yazi file manager popup
 Prefix + b      btop / macmon popup
 Prefix + f      Fuzzy find panes across all sessions
 Prefix + L      Toggle last session (sesh)
@@ -288,7 +286,6 @@ Alt + y/u       Previous/next session (no prefix, M14/M15)
 | [tmux-fingers](https://github.com/Morantron/tmux-fingers) | Vimium-style hint labels to yank visible text |
 | [tmux-fzf-url](https://github.com/wfxr/tmux-fzf-url) | Extract and open URLs from scrollback |
 | [tmux-fuzzback](https://github.com/roosta/tmux-fuzzback) | fzf search through scrollback history |
-| [tmux-open-nvim](https://github.com/trevarj/tmux-open-nvim) | Open files from tmux in the nearest neovim instance |
 | [tmux-jumplist](https://github.com/joryeugene/tmux-jumplist) | Navigate back/forward through pane history, like Ctrl-O/Ctrl-I in vim |
 
 ### sketchybar (status bar)
