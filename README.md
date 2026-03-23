@@ -1,6 +1,6 @@
 # heavy-handed
 
-A 42-key split keyboard layout for the Piantor Pro with 20g Kailh Choc switches.
+A 42-key split keyboard layout for the Piantor Pro with Nocturnal Silent Linear 20g switches.
 The switches activate if you breathe on them. The name is aspirational.
 
 ![Piantor Pro split keyboard with touchpad centered between halves](piantor-setup.png)
@@ -15,8 +15,8 @@ Read the full story: [Twelve Keyboards Later](https://jorypestorious.com/blog/en
 
 Every key serves one purpose. No redundant layers.
 
-The six thumb keys handle layers and the three most frequent non-alpha keys
-(Backspace, Space, Tab). Modifiers stay on the outer pinky columns:
+The six thumb keys handle five layers and the five most frequent non-alpha keys
+(Backspace, Space, Tab, Escape, and mouse click). Modifiers stay on the outer pinky columns:
 Ctrl (top left), Cmd (home left), Alt (top right), Shift-parens (bottom both).
 
 The right outer thumb is Escape on tap, Hyper (all four modifiers) on hold.
@@ -286,7 +286,7 @@ Two rules:
 
 1. **Cmd+HJKL = Arrow keys.**
    Hold left Cmd (home pinky) and press HJKL for arrow keys from home position.
-   Works on both the Piantor and the MacBook's built-in keyboard.
+   This is for the MacBook's built-in keyboard. The Piantor handles arrows in Vial firmware on L2.
 
 2. **Left Ctrl alone = Escape.**
    A safety net for the MacBook keyboard when traveling without the Piantor.
@@ -349,7 +349,7 @@ Code's large outputs without choking. Pairs with tmux for multiplexing rather
 than using a built-in multiplexer.
 
 More on the full terminal stack in
-[Terminal Velocity](https://joryeugene.github.io/blog/terminal-velocity/).
+[Terminal Velocity](https://jorypestorious.com/blog/terminal-velocity/).
 
 ### Raycast
 
