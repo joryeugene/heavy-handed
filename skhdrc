@@ -1,0 +1,82 @@
+# Skhd configuration
+# Keyboard shortcuts for yabai window manager
+# Ported from aerospace configuration
+
+# === WINDOW NAVIGATION (vim-style) ===
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# === WINDOW MOVEMENT ===
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# === WINDOW RESIZING ===
+ctrl + alt - h : yabai -m window --resize left:-50:0 || yabai -m window --resize right:-50:0
+ctrl + alt - j : yabai -m window --resize bottom:0:50 || yabai -m window --resize top:0:50
+ctrl + alt - k : yabai -m window --resize top:0:-50 || yabai -m window --resize bottom:0:-50
+ctrl + alt - l : yabai -m window --resize right:50:0 || yabai -m window --resize left:50:0
+
+# === WINDOW OPERATIONS ===
+# Fullscreen toggle
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# Toggle float
+shift + alt - space : yabai -m window --toggle float
+
+# Balance window sizes
+alt - 0x1D : yabai -m space --balance
+
+# Rotate layout 90 degrees (reset layout equivalent)
+alt - r : yabai -m space --rotate 90
+
+# === LAYOUT SWITCHING ===
+# Toggle between bsp and float layout
+alt - 0x2C : yabai -m space --layout bsp
+
+# === MOVE WINDOW TO SPACE ===
+# Space focus: use native Ctrl+1-6 (Mission Control)
+# These move the window without following (focus requires scripting addition)
+shift + alt - 1 : yabai -m window --space 1
+shift + alt - 2 : yabai -m window --space 2
+shift + alt - 3 : yabai -m window --space 3
+shift + alt - 4 : yabai -m window --space 4
+shift + alt - 5 : yabai -m window --space 5
+shift + alt - 6 : yabai -m window --space 6
+
+# Move window to next/previous space
+shift + alt - n : yabai -m window --space next
+shift + alt - p : yabai -m window --space prev
+
+# === DISPLAY (MULTI-MONITOR) ===
+# m = monitor. Cycle wraps: try next, fall back to first/last.
+# Alt+D is taken by Wispr transcription (keyboard macro M1)
+# Cycle displays: focus first window on next display (wraps around)
+alt - m : ~/.config/skhd/cycle-display.sh
+shift + alt - m : yabai -m window --display $(( $(yabai -m query --displays --display | jq '.index') % $(yabai -m query --displays | jq 'length') + 1 ))
+
+# === APP LAUNCH/FOCUS (Hyper = Ctrl+Shift+Alt+Cmd) ===
+# Hyper key lives on Piantor right outer thumb (hold Esc).
+# Each shortcut focuses the app if running, launches if not.
+ctrl + shift + alt + cmd - q : open -a "Google Chrome"
+ctrl + shift + alt + cmd - w : open -a "WezTerm"
+ctrl + shift + alt + cmd - e : open -a "Zen Browser"
+ctrl + shift + alt + cmd - s : open -a "Slack"
+ctrl + shift + alt + cmd - a : open -a "Asana"
+ctrl + shift + alt + cmd - g : open -a "Google Calendar"
+
+# === ADDITIONAL SHORTCUTS ===
+# Screenshot (interactive selection)
+ctrl + shift + alt + cmd - c : /usr/sbin/screencapture -i -U ~/Desktop/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+# List all windows in current space
+alt - x : osascript -e 'tell application "Terminal" to do script "yabai -m query --windows --space | jq -r '"'"'.[] | \"\\(.app) - \\(.title)\"'"'"' && read -p \"Press Enter to close...\""'
+
+# Layout toggle (accordion mode equivalent - stack layout)
+alt - 0x2B : yabai -m space --layout stack
+
+# === CONFIGURATION ===
+shift + alt - r : yabai --restart-service && skhd --restart-service
