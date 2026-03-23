@@ -3,6 +3,8 @@
 A 42-key split keyboard layout for the Piantor Pro with 20g Kailh Choc switches.
 The switches activate if you breathe on them. The name is aspirational.
 
+![Piantor Pro split keyboard with touchpad centered between halves](piantor-setup.png)
+
 Vial firmware. Load `piantor-pro-heavy-handed.vil` in [Vial](https://get.vial.today/) and flash.
 
 ---
