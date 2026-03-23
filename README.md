@@ -7,6 +7,8 @@ The switches activate if you breathe on them. The name is aspirational.
 
 Vial firmware. Load `piantor-pro-heavy-handed.vil` in [Vial](https://get.vial.today/) and flash.
 
+Read the full story: [Twelve Keyboards Later](https://jorypestorious.com/blog/endgame-keyboard/)
+
 ---
 
 ## Philosophy
