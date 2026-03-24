@@ -1,19 +1,19 @@
 # heavy-handed
 
-A 42-key split keyboard layout for the Piantor Pro with Nocturnal Silent Linear 20g switches.
+This is a 42-key split keyboard layout for the Piantor Pro with Nocturnal Silent Linear 20g switches.
 The switches activate if you breathe on them. The name is aspirational.
 
-![Piantor Pro split keyboard with touchpad centered between halves](piantor-setup.png)
+![Piantor Pro split keyboard with touchpad centered between halves](piantor-setup.jpg)
 
-Vial firmware. Load `piantor-pro-heavy-handed.vil` in [Vial](https://get.vial.today/) and flash.
+The firmware uses Vial. Load `piantor-pro-heavy-handed.vil` in [Vial](https://get.vial.today/) and flash.
 
-Read the full story: [Twelve Keyboards Later](https://jorypestorious.com/blog/endgame-keyboard/)
+The full story is at [Twelve Keyboards Later](https://jorypestorious.com/blog/endgame-keyboard/).
 
 ---
 
 ## Philosophy
 
-Every key serves one purpose. No redundant layers.
+Every key serves one purpose. The layout has no redundant layers.
 
 The six thumb keys handle five layers and the five most frequent non-alpha keys
 (Backspace, Space, Tab, Escape, and mouse click). Modifiers stay on the outer pinky columns:
@@ -55,15 +55,15 @@ modifier keys have no timing ambiguity. Ctrl is always Ctrl.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Left outer column:** Ctrl (top), Cmd (home), Shift/( (bottom).
-Cmd on left home pinky keeps one-handed Cmd+ZXCV comfortable.
+**Left outer column** holds Ctrl (top), Cmd (home), and Shift/( (bottom).
+Cmd on the left home pinky keeps one-handed Cmd+ZXCV comfortable.
 
-**Right outer column:** Alt (top), quote (home), Shift/) (bottom).
+**Right outer column** holds Alt (top), quote (home), and Shift/) (bottom).
 
-**Left thumbs:** Tab/L5, Backspace/L1, Enter/L3.
-Tab on the outer thumb because it is used constantly. Del lives on L2.
+**Left thumbs** are Tab/L5, Backspace/L1, and Enter/L3.
+Tab sits on the outer thumb because it is used constantly. Del lives on L2.
 
-**Right thumbs:** Click/L4, Space/L2, Esc/Hyper.
+**Right thumbs** are Click/L4, Space/L2, and Esc/Hyper.
 The right inner thumb taps left-click and holds for the mouse layer.
 
 ---
@@ -80,7 +80,7 @@ The right inner thumb taps left-click and holds for the mouse layer.
 
 ### L1 Num (hold Backspace)
 
-Right hand numpad with brackets. Left hand has format separators, bracket pairs,
+The right hand holds a numpad with brackets. The left hand has format separators, bracket pairs,
 and math operators for number-adjacent input without leaving the numpad.
 
 ```
@@ -96,16 +96,9 @@ and math operators for number-adjacent input without leaving the numpad.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Left hand home row (ASDF):** `$` `.` `,` `:` for currency, decimals, thousands
-separators, and times. Enter numbers with the right hand, punctuate with the left.
-
-**Left hand top row (QWER):** `{` `(` `)` `}` for grouping expressions while on the numpad.
-
-**Left hand bottom row (ZXCV):** `/` `*` `+` `%` for math and percentages.
-
 ### L2 Nav + tmux (hold Space)
 
-Left hand: arrows and editing. Right hand: all tmux controls.
+The left hand handles arrows and editing. The right hand controls all of tmux.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
@@ -120,20 +113,9 @@ Left hand: arrows and editing. Right hand: all tmux controls.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Home row (HJKL + sesh):**
-H = prev window, L = next window (horizontal).
-J = next session, K = prev session (vertical).
-; = sesh session picker. Spatial like vim.
-
-**Top row (workspace actions):**
-U = split horizontal, I = split vertical, O = zoom, P = copy mode.
-
-**Bottom row (launchers):**
-M = lazygit, , = zoxide jump, . = new window, / = yazi file manager.
-
 ### L3 Sym + yabai (hold Enter)
 
-Right hand shifted symbols. Left hand yabai window management.
+The right hand holds shifted symbols. The left hand controls yabai window management.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
@@ -148,19 +130,9 @@ Right hand shifted symbols. Left hand yabai window management.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Left hand home row (ASDF):** Alt+HJKL = focus window in that direction.
-Same spatial mapping as L2 arrows. A=west, S=south, D=north, F=east.
-
-**Left hand bottom row (ZXCV):** Shift+Alt+HJKL = swap window position.
-
-**Left hand top row (QWER):** Ctrl+Alt+HJKL = resize window.
-
-**Left thumbs:** fullscreen toggle (outer), rotate layout 90 degrees (middle).
-
 ### L4 Mouse (hold right inner thumb)
 
-Left hand controls cursor and scroll. Right hand has one-handed editing
-shortcuts for use while mousing.
+The left hand controls cursor and scroll. The right hand has one-handed editing shortcuts.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
@@ -175,15 +147,9 @@ shortcuts for use while mousing.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Left hand:** cursor movement (home row), scroll (top row), click buttons (thumbs).
-
-**Right hand home row:** Cmd+Z undo, Cmd+X cut, Cmd+C copy, Cmd+V paste.
-**Right hand top row:** Cmd+T new tab, Cmd+W close tab, Cmd+S save, Cmd+A select all.
-**Right hand bottom row:** Cmd+Shift+Z redo, Cmd+F find.
-
 ### L5 Fn + Media (hold Tab)
 
-F-keys on right. Media on left home row. Brightness on right pinky.
+F-keys live on the right hand. Media controls sit on the left home row. Brightness is on the right pinky.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
@@ -198,20 +164,9 @@ F-keys on right. Media on left home row. Brightness on right pinky.
                     +-----+-----+-----+    +-----+-----+-----+
 ```
 
-**Left ASDF:** Mute, Vol-, Vol+, Play.
-Natural left-to-right: toggle, down, up, toggle.
-
-**Right pinky:** Screenshot (top), Bri+ (home), Bri- (bottom).
-Brightness next to screenshot since both are display controls.
-
-**Right thumbs:** M0 Raycast, M1 Wispr, M2 tmux prefix.
-
 ---
 
 ## Macros
-
-All 16 slots used. Tmux macros send the prefix (Ctrl+A) then the command key,
-matching `~/.config/tmux/tmux.conf` bindings exactly.
 
 | Slot | Keys | Purpose | Layer | Position |
 |------|------|---------|-------|----------|
@@ -232,131 +187,25 @@ matching `~/.config/tmux/tmux.conf` bindings exactly.
 | M14 | Alt+Y | tmux previous session | L2 | K position |
 | M15 | Alt+U | tmux next session | L2 | J position |
 
-Hold Space, right hand does all tmux. Left hand does all navigation.
-
 ---
 
-## The Ecosystem
+## Shared Configs
 
-The keyboard layout is one layer in a stack. Each tool below connects to the
-layout through shared bindings.
-
-### yabai + skhd (tiling window manager)
-
-[yabai](https://github.com/koekeishiya/yabai) is the tiling window manager.
-[skhd](https://github.com/koekeishiya/skhd) is the hotkey daemon. Three domains,
-three modifiers. No overlap.
-
-**L3 layer = window HJKL** (hold Enter on the Piantor, left hand ASDF):
-
-The keyboard sends Alt+HJKL, Shift+Alt+HJKL, and Ctrl+Alt+HJKL keycodes
-directly from the L3 layer. skhd intercepts them. No same-hand modifier
-stretch. Home row = focus, bottom = swap, top = resize.
-
-**Alt = remaining window ops** (right top pinky, direct):
+The keyboard layout is one layer in a stack. The configs in this repo are the
+shared bindings that connect the Piantor to the rest of the environment.
 
 ```
-Alt + f              Toggle fullscreen
-Alt + r              Rotate layout 90 degrees
-Alt + m              Focus next display (multi-monitor)
-Shift + Alt + m      Move window to next display
-Shift + Alt + 1-6    Move window to space N
-Shift + Alt + n/p    Move window to next/prev space
+skhd/           yabai + skhd hotkey daemon config
+  skhdrc        Three modifier domains: Alt (windows), Hyper (apps), Ctrl+Alt/Shift+Alt (L3 layer)
+  cycle-display.sh   Multi-monitor focus cycling (skips overlay apps)
+
+tmux/           tmux terminal multiplexer config
+  tmux.conf     Prefix Ctrl+A, sesh, popups (lazygit/yazi/btop), vim-tmux-navigator
+  clipboard-image.sh   Paste clipboard image to pane working directory
 ```
 
-Space focus uses native macOS Ctrl+1-6 (Mission Control). The Alt bindings
-handle window movement only.
-
-**Hyper = app launching** (hold right outer thumb on the Piantor):
-
-```
-Hyper + q            Google Chrome
-Hyper + w            WezTerm
-Hyper + e            Zen Browser
-Hyper + s            Slack
-Hyper + a            Asana
-Hyper + g            Google Calendar
-Hyper + c            Screenshot (interactive selection)
-```
-
-Hyper focuses the app if running, launches if not.
-
-### Karabiner-Elements (OS-level remaps)
-
-Two rules:
-
-1. **Cmd+HJKL = Arrow keys.**
-   Hold left Cmd (home pinky) and press HJKL for arrow keys from home position.
-   This is for the MacBook's built-in keyboard. The Piantor handles arrows in Vial firmware on L2.
-
-2. **Caps Lock/Ctrl swap + tap Escape.**
-   macOS System Settings swaps Caps Lock and Ctrl, putting Ctrl on the home row.
-   That key taps Escape, holds Ctrl. A safety net for the MacBook keyboard when traveling without the Piantor.
-
-### tmux (terminal multiplexer)
-
-Prefix is Ctrl+A (keyboard macro M2).
-The layout macros match these tmux.conf bindings:
-
-```
-Prefix + -      Split horizontal (M4)
-Prefix + |      Split vertical (M5)
-Prefix + z      Zoom toggle (M6)
-Prefix + g      lazygit popup (M7)
-Prefix + a      sesh session picker with fzf (M8)
-Prefix + j      zoxide directory jump (M9)
-Prefix + c      New window (M10)
-Prefix + y      yazi file manager popup (M11)
-Prefix + [      Copy mode, vi keys (M3)
-Prefix + b      btop / macmon popup
-Prefix + f      Fuzzy find panes across all sessions
-Prefix + L      Toggle last session (sesh)
-Prefix + space  tmux-fingers (vimium-style hint labels)
-Prefix + /      fuzzback (fzf search through scrollback)
-Prefix + o      tmux-claude-sessions
-Alt + n/p       Next/previous window (no prefix, M13/M12)
-Alt + y/u       Previous/next session (no prefix, M14/M15)
-```
-
-**Plugins:**
-
-| Plugin | Purpose |
-|--------|---------|
-| [catppuccin/tmux](https://github.com/catppuccin/tmux) | Mocha theme, rounded tabs, session name + uptime in status bar |
-| [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) | Ctrl+hjkl moves between vim splits and tmux panes |
-| [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) + [continuum](https://github.com/tmux-plugins/tmux-continuum) | Persist and auto-restore sessions across reboots |
-| [tmux-fingers](https://github.com/Morantron/tmux-fingers) | Vimium-style hint labels to yank visible text |
-| [tmux-fzf-url](https://github.com/wfxr/tmux-fzf-url) | Extract and open URLs from scrollback |
-| [tmux-fuzzback](https://github.com/roosta/tmux-fuzzback) | fzf search through scrollback history |
-| [tmux-jumplist](https://github.com/joryeugene/tmux-jumplist) | Navigate back/forward through pane history, like Ctrl-O/Ctrl-I in vim |
-
-### sketchybar (status bar)
-
-Top bar running catppuccin mocha to match tmux. Hack Nerd Font for icons and labels.
-
-```
-Left:   [workspace indicators]  [focused app name]
-Right:  [mail badge] | [cpu] [memory] | [wifi] | [battery] [volume] | [clock]
-```
-
-Colors: background `#1e1e2e`, foreground `#cdd6f4`, accents in catppuccin
-blue (`#89b4fa`), green (`#a6e3a1`), yellow (`#f9e2af`), red (`#f38ba8`).
-Separators between widget groups. Modular `items/` and `plugins/` directories.
-
-### WezTerm (terminal emulator)
-
-[WezTerm](https://wezfurlong.org/wezterm/) over Ghostty, Kitty, Rio, or Warp.
-GPU-accelerated, Lua-programmable, cross-platform consistent. Handles Claude
-Code's large outputs without choking. Pairs with tmux for multiplexing rather
-than using a built-in multiplexer.
-
-More on the full terminal stack in
-[Terminal Velocity](https://jorypestorious.com/blog/terminal-velocity/).
-
-### Raycast
-
-Activated by RAlt+Space (macro M0). Vim navigation mode enabled.
-Extensions include Claude AI, Brew, Kill Process, TLDR. Compact window mode.
+Karabiner-Elements handles two OS-level remaps for the MacBook built-in keyboard:
+Cmd+HJKL arrows from home position, and Caps Lock as Ctrl (tap Escape).
 
 ---
 
