@@ -289,8 +289,9 @@ Two rules:
    Hold left Cmd (home pinky) and press HJKL for arrow keys from home position.
    This is for the MacBook's built-in keyboard. The Piantor handles arrows in Vial firmware on L2.
 
-2. **Left Ctrl alone = Escape.**
-   A safety net for the MacBook keyboard when traveling without the Piantor.
+2. **Caps Lock/Ctrl swap + tap Escape.**
+   macOS System Settings swaps Caps Lock and Ctrl, putting Ctrl on the home row.
+   That key taps Escape, holds Ctrl. A safety net for the MacBook keyboard when traveling without the Piantor.
 
 ### tmux (terminal multiplexer)
 
