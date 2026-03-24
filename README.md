@@ -25,10 +25,11 @@ Hyper gives skhd a dedicated modifier namespace for app launching, separate
 from Alt (window management) and Ctrl (tmux).
 
 **Ghost glyph protection:** the inner column keys (T/G/B and Y/H/N positions)
-send nothing on every layer except base. At 20g actuation, fast typing on
-adjacent keys registers these by accident. If they contain Insert, F-keys, or
-Caps Lock, you get phantom output. The fix is structural: make the wrong thing
-absent, not unlikely.
+are blank on most layers. Insert used to live on the G position of L2, and it
+fired constantly. Blanking the inner column on layers where it serves no purpose
+fixed the problem. The inner column still carries content on some layers (L1 puts
+brackets on Y and equals on H; L3 puts symbols across the right inner column)
+where those keys are intentional targets.
 
 **Why not home row mods?** At 20g actuation force, fingers rest on the keys with
 enough pressure to register. Fast typing holds keys for 100-150ms during normal
