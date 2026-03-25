@@ -150,12 +150,13 @@ The left hand controls cursor and scroll. The right hand has one-handed editing 
 ### L5 Fn + Media (hold Tab)
 
 F-keys live on the right hand. Media controls sit on the left home row. Brightness is on the right pinky.
+The right inner column H position holds a plain Space for Claude Code voice mode (hold Tab, hold H).
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
 |     |     |     |     |     |     |          |     | F7  | F8  | F9  | F12 |ScSht|
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |Mute |Vol- |Vol+ |Play |     |          |     | F4  | F5  | F6  | F11 |Bri+ |
+|     |Mute |Vol- |Vol+ |Play |     |          |Space| F4  | F5  | F6  | F11 |Bri+ |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
 |     |     |     |     |     |     |          |     | F1  | F2  | F3  | F10 |Bri- |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
