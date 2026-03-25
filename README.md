@@ -9,47 +9,112 @@ The full story is at [Twelve Keyboards Later](https://jorypestorious.com/blog/en
 
 ---
 
+## Files
+
+| File | What it is | When to use it |
+|------|-----------|----------------|
+| `piantor-pro-heavy-handed.vil` | Layout for the stock Vial firmware (UID `16002279599986889074`) | Load in Vial if running the original firmware that shipped with the keyboard |
+| `piantor-pro-heavy-handed-v2.vil` | Layout for the custom firmware (UID `12093350594035645365`) | Load in Vial after flashing the custom `.uf2` |
+| `beekeeb_piantor_pro_vial.uf2` | Custom firmware binary for the RP2040 | Flash once onto the keyboard to replace stock firmware |
+| `skhd/` | yabai + skhd hotkey daemon config | macOS window management bindings |
+| `tmux/` | tmux terminal multiplexer config | Terminal session bindings |
+
 ## Firmware
 
-Two versions of this layout exist. Use whichever matches your firmware.
+### Why two versions exist
+
+Each firmware has a unique UID baked into it. Vial matches `.vil` layout files to firmware by UID,
+so the original `.vil` will not load on the custom firmware and vice versa. Both versions carry the
+same keymap. The difference is the firmware underneath.
 
 ### Original: stock Vial firmware
 
-`piantor-pro-heavy-handed.vil` works with the stock Vial firmware that ships with beekeeb's Piantor Pro.
-Download Vial from [get.vial.today](https://get.vial.today/), open the `.vil` file, and flash.
-No build required.
+The stock firmware ships with beekeeb's Piantor Pro. Download [Vial](https://get.vial.today/),
+open `piantor-pro-heavy-handed.vil`, and the layout loads directly. No flashing required.
 
-### Custom: vial-qmk with Flow Tap and QMK Settings
+If you type fast enough to trigger accidental layer activations (holding Space for L2 while typing
+"I" fires tmux split-vertical), the stock firmware may not have Flow Tap available depending on
+when it was built. The custom firmware guarantees Flow Tap support.
 
-`piantor-pro-heavy-handed-v2.vil` requires the custom firmware (`beekeeb_piantor_pro_vial.uf2`) built from this repo.
+### Custom: vial-qmk with Flow Tap
 
-**What the custom firmware adds:**
+`piantor-pro-heavy-handed-v2.vil` requires the custom firmware (`beekeeb_piantor_pro_vial.uf2`).
 
-- **Flow Tap.** If the previous keypress was within 150ms, layer-tap keys like Space/L2 force tap behavior instead of activating the layer. This eliminates accidental tmux splits and other layer misfires during fast typing.
-- **QMK Settings tab in Vial.** Exposes tapping term, flow tap term, quick tap term, and other timing values as live sliders you can tune without reflashing.
-- **QK_BOOT key.** Tab + Ctrl (top-left) enters bootloader. No physical reset button or disassembly needed.
+**Why the custom firmware exists:**
 
-**How to flash:**
+- **Flow Tap.** Tapping term is a single threshold that applies to every tap-hold key in every
+  situation. With 20g switches and fast typing, the overlap between "how long Space is held during
+  normal typing" (100-150ms) and "how long Space needs to be held for intentional L2 activation"
+  (150-200ms) is too tight. No single tapping term value works for both cases. Lower it and
+  intentional holds trigger faster, but so do accidental holds during typing. Raise it and
+  accidental holds decrease, but navigation feels sluggish.
 
-1. Load `piantor-pro-heavy-handed-v2.vil` in Vial first so QK_BOOT is live on the keyboard.
-2. Press Tab + Ctrl (hold Tab, tap the top-left Ctrl key). The keyboard mounts as `RPI-RP2`.
+  Flow Tap solves this by checking whether you pressed another key within 150ms before pressing
+  the layer-tap key. If yes, you were typing, so the key always taps. If no, you paused before
+  pressing it, so normal tap-hold behavior applies and the layer activates. Tapping term stays
+  at 200ms for the hold case while the typing case is handled separately.
+
+  The stock firmware may not include Flow Tap depending on the QMK version it was built from.
+
+Both stock and custom firmware support QMK Settings (live tuning in Vial) and QK_BOOT (bootloader
+entry without case disassembly). QK_BOOT is mapped to L5 top-left: hold Tab, tap the Ctrl position.
+
+### How to flash the custom firmware
+
+The `.uf2` file is the firmware binary. You flash it once. After that, use Vial to load `.vil`
+layout files without reflashing.
+
+1. Enter bootloader. If the keyboard already has QK_BOOT mapped (L5 top-left), hold Tab and tap
+   the top-left key. Otherwise, install `picotool` (`brew install picotool`) or double-tap the
+   reset button on the PCB if accessible.
+2. The keyboard disconnects and mounts as a USB drive called `RPI-RP2`.
 3. Copy `beekeeb_piantor_pro_vial.uf2` onto the `RPI-RP2` drive. It reboots automatically.
-4. Open Vial and load `piantor-pro-heavy-handed-v2.vil` again.
-5. Go to the QMK Settings tab and confirm Flow Tap Term is 150ms.
+4. Open Vial and load `piantor-pro-heavy-handed-v2.vil`.
+5. Go to the QMK Settings tab and confirm Flow Tap is set to 150.
 
-**UID note:** The custom firmware has a unique keyboard UID baked into the keymap at `keyboards/beekeeb/piantor_pro/keymaps/vial/config.h`. This UID is what allows Vial to match a `.vil` file to your keyboard. If you build your own firmware and generate a different UID, update `VIAL_KEYBOARD_UID` in that file before compiling, then save a fresh `.vil` from Vial after loading your layout.
+### How to rebuild the firmware
 
-**How to rebuild the firmware** (the compiled `.uf2` is included, so this is optional):
+The compiled `.uf2` is included in this repo, so rebuilding is optional. Only needed if you
+modify the firmware source.
 
 ```bash
 git clone https://github.com/vial-kb/vial-qmk.git ~/vial-qmk --depth=1
 cd ~/vial-qmk
 git submodule update --init --recursive
-qmk config user.qmk_home=~/vial-qmk
 make beekeeb/piantor_pro:vial
 ```
 
-Flow Tap is enabled automatically by Vial's QMK Settings feature. No source changes are needed beyond what is in the `keymaps/vial/` directory.
+Flow Tap is enabled automatically by Vial's QMK Settings feature (`QMK_SETTINGS = yes` in
+`rules.mk`). No source changes needed beyond what is in `keymaps/vial/`.
+
+**UID note:** The firmware UID lives in `keyboards/beekeeb/piantor_pro/keymaps/vial/config.h`
+as `VIAL_KEYBOARD_UID`. If you regenerate the UID, the existing `.vil` files will not load.
+Save a fresh `.vil` from Vial after loading your layout on the new firmware.
+
+---
+
+## QMK Settings
+
+These settings are tuned for 20g switches where fingers rest with enough pressure to actuate.
+All values are adjustable live in Vial's QMK Settings tab on the custom firmware.
+
+| Setting | Value | Purpose |
+|---------|-------|---------|
+| Tapping Term | 200ms | How long a key must be held before it counts as a hold instead of a tap. 200ms is the QMK default and works well with Flow Tap handling the fast-typing edge case. |
+| Flow Tap | 150ms | The core setting. If the previous keypress was within 150ms, layer-tap keys always tap. Raise to 170ms if you still get accidental layer activations. Lower to 130ms if intentional holds feel sluggish. |
+| Quick Tap Term | 200ms | If the same key is tapped twice within this window, the second press always taps. Prevents accidental layer activation when double-tapping Space or Backspace. |
+| Permissive Hold | OFF | When ON, pressing another key while holding a layer-tap key triggers the hold even before tapping term expires. With 20g switches, normal typing rolls over keys constantly, so this would cause false layer activations. |
+| Hold On Other Key Press | OFF | Similar to Permissive Hold. Triggers hold on keypress instead of release. OFF for the same reason. |
+| Retro Tapping | OFF | When ON, holding a layer-tap key past tapping term and releasing without pressing anything sends the tap. This adds input latency because QMK must wait the full tapping term before deciding. |
+| Chordal Hold | OFF | Detects holds based on which hand pressed the next key. Breaks intentional same-hand layer use on this layout. |
+| Tap Hold Caps Delay | 80ms | Delay before caps lock registers on tap-hold keys. Default value. |
+| Tapping Toggle | 5 | Number of taps to permanently toggle a layer on or off. 5 is high enough to prevent accidental toggles. |
+| Tap Code Delay | 0 | Delay between tap code keypresses. Not used in this layout. |
+
+**When to adjust:** If holding Space occasionally types a space instead of activating L2 during
+deliberate navigation, the 150ms Flow Tap window might be catching your intentional holds.
+Lower Flow Tap to 130ms. If you still get accidental tmux splits during fast prose typing,
+raise Flow Tap to 170ms.
 
 ---
 
@@ -235,18 +300,16 @@ On the custom firmware, the top-left Ctrl position holds QK_BOOT (hold Tab, tap 
 
 ## Shared Configs
 
-The keyboard layout is one layer in a stack. The configs in this repo are the
-shared bindings that connect the Piantor to the rest of the environment.
+The keyboard layout is one layer in a stack. The configs in `skhd/` and `tmux/`
+are the shared bindings that connect the Piantor to the rest of the environment.
 
-```
-skhd/           yabai + skhd hotkey daemon config
-  skhdrc        Three modifier domains: Alt (windows), Hyper (apps), Ctrl+Alt/Shift+Alt (L3 layer)
-  cycle-display.sh   Multi-monitor focus cycling (skips overlay apps)
+`skhd/skhdrc` defines three modifier domains: Alt for yabai window management,
+Hyper (Esc hold) for skhd app launching, and Ctrl+Alt/Shift+Alt for L3 layer
+passthrough. `skhd/cycle-display.sh` handles multi-monitor focus cycling.
 
-tmux/           tmux terminal multiplexer config
-  tmux.conf     Prefix Ctrl+A, sesh, popups (lazygit/yazi/btop), vim-tmux-navigator
-  clipboard-image.sh   Paste clipboard image to pane working directory
-```
+`tmux/tmux.conf` sets prefix to Ctrl+A with sesh session management, popup
+windows for lazygit/yazi/btop, and vim-tmux-navigator pane integration.
+`tmux/clipboard-image.sh` pastes clipboard images into the current pane directory.
 
 Karabiner-Elements handles two OS-level remaps for the MacBook built-in keyboard:
 Cmd+HJKL arrows from home position, and Caps Lock as Ctrl (tap Escape).
