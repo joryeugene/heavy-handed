@@ -5,9 +5,51 @@ The switches activate if you breathe on them. The name is aspirational.
 
 ![Piantor Pro split keyboard with touchpad centered between halves](piantor-setup.jpg)
 
-The firmware uses Vial. Load `piantor-pro-heavy-handed.vil` in [Vial](https://get.vial.today/) and flash.
-
 The full story is at [Twelve Keyboards Later](https://jorypestorious.com/blog/endgame-keyboard/).
+
+---
+
+## Firmware
+
+Two versions of this layout exist. Use whichever matches your firmware.
+
+### Original: stock Vial firmware
+
+`piantor-pro-heavy-handed.vil` works with the stock Vial firmware that ships with beekeeb's Piantor Pro.
+Download Vial from [get.vial.today](https://get.vial.today/), open the `.vil` file, and flash.
+No build required.
+
+### Custom: vial-qmk with Flow Tap and QMK Settings
+
+`piantor-pro-heavy-handed-v2.vil` requires the custom firmware (`beekeeb_piantor_pro_vial.uf2`) built from this repo.
+
+**What the custom firmware adds:**
+
+- **Flow Tap.** If the previous keypress was within 150ms, layer-tap keys like Space/L2 force tap behavior instead of activating the layer. This eliminates accidental tmux splits and other layer misfires during fast typing.
+- **QMK Settings tab in Vial.** Exposes tapping term, flow tap term, quick tap term, and other timing values as live sliders you can tune without reflashing.
+- **QK_BOOT key.** Tab + Ctrl (top-left) enters bootloader. No physical reset button or disassembly needed.
+
+**How to flash:**
+
+1. Load `piantor-pro-heavy-handed-v2.vil` in Vial first so QK_BOOT is live on the keyboard.
+2. Press Tab + Ctrl (hold Tab, tap the top-left Ctrl key). The keyboard mounts as `RPI-RP2`.
+3. Copy `beekeeb_piantor_pro_vial.uf2` onto the `RPI-RP2` drive. It reboots automatically.
+4. Open Vial and load `piantor-pro-heavy-handed-v2.vil` again.
+5. Go to the QMK Settings tab and confirm Flow Tap Term is 150ms.
+
+**UID note:** The custom firmware has a unique keyboard UID baked into the keymap at `keyboards/beekeeb/piantor_pro/keymaps/vial/config.h`. This UID is what allows Vial to match a `.vil` file to your keyboard. If you build your own firmware and generate a different UID, update `VIAL_KEYBOARD_UID` in that file before compiling, then save a fresh `.vil` from Vial after loading your layout.
+
+**How to rebuild the firmware** (the compiled `.uf2` is included, so this is optional):
+
+```bash
+git clone https://github.com/vial-kb/vial-qmk.git ~/vial-qmk --depth=1
+cd ~/vial-qmk
+git submodule update --init --recursive
+qmk config user.qmk_home=~/vial-qmk
+make beekeeb/piantor_pro:vial
+```
+
+Flow Tap is enabled automatically by Vial's QMK Settings feature. No source changes are needed beyond what is in the `keymaps/vial/` directory.
 
 ---
 
@@ -150,11 +192,12 @@ The left hand controls cursor and scroll. The right hand has one-handed editing 
 ### L5 Fn + Media (hold Tab)
 
 F-keys live on the right hand. Media controls sit on the left home row. Brightness is on the right pinky.
-The right inner column H position holds a plain Space for Claude Code voice mode (hold Tab, hold H).
+The H position holds a plain Space for Claude Code voice mode (hold Tab, hold H).
+On the custom firmware, the top-left Ctrl position holds QK_BOOT (hold Tab, tap Ctrl) to enter bootloader.
 
 ```
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |     | F7  | F8  | F9  | F12 |ScSht|
+|Boot |     |     |     |     |     |          |     | F7  | F8  | F9  | F12 |ScSht|
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
 |     |Mute |Vol- |Vol+ |Play |     |          |Space| F4  | F5  | F6  | F11 |Bri+ |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
