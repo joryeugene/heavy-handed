@@ -256,7 +256,8 @@ The left hand controls cursor and scroll. The right hand has one-handed editing 
 
 ### L5 Fn + Media (hold Tab)
 
-F-keys live on the right hand. Media controls sit on the left home row. Brightness is on the right pinky.
+F-keys live on the right hand. Media controls fill the left hand in two rows: home row for
+volume and playback state, bottom row for track navigation and power. Brightness is on the right pinky.
 The H position holds a plain Space for Claude Code voice mode (hold Tab, hold H).
 On the custom firmware, the top-left Ctrl position holds QK_BOOT (hold Tab, tap Ctrl) to enter bootloader.
 
@@ -266,7 +267,7 @@ On the custom firmware, the top-left Ctrl position holds QK_BOOT (hold Tab, tap 
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
 |     |Mute |Vol- |Vol+ |Play |     |          |Space| F4  | F5  | F6  | F11 |Bri+ |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |          |     | F1  | F2  | F3  | F10 |Bri- |
+|     |Sleep|Prev |Next |Stop |     |          |     | F1  | F2  | F3  | F10 |Bri- |
 +-----+-----+-----+-----+-----+-----+          +-----+-----+-----+-----+-----+-----+
                     +-----+-----+-----+    +-----+-----+-----+
                     |(hld)|     |     |    | M0  | M1  | M2  |
